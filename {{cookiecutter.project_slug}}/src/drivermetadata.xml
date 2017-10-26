@@ -1,0 +1,21 @@
+<Driver Description="{{cookiecutter.project_short_description}}" MainClass="driver.{{cookiecutter.driver_name}}" Name="{{cookiecutter.driver_name}}" Version="1.0.0">
+    <Layout>
+        <Category Name="Hidden Commands">
+            <Command Name="ApplyConnectivityChanges" DisplayName="ApplyConnectivityChanges" Tags="allow_unreserved">
+                <Parameters>
+                    <Parameter Name="request" Type="String" Mandatory = "True" DefaultValue="" Description=""/>
+                </Parameters>
+            </Command>
+        </Category>
+        <Command Name="remove_openflow" DisplayName="Remove Openflow" Tags="allow_unreserved">
+            <Parameters>
+                <Parameter Name="node_id" DisplayName="Node ID" Type="String" Mandatory="True" DefaultValue=""
+                           Description=""/>
+                <Parameter Name="table_id" DisplayName="Table ID" Type="String" Mandatory="True" DefaultValue="0"
+                           Description=""/>
+                <Parameter Name="flow_id" DisplayName="Flow ID" Type="String" Mandatory="True" DefaultValue=""
+                           Description=""/>
+            </Parameters>
+        </Command>
+    </Layout>
+</Driver>
