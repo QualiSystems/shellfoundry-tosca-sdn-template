@@ -5,12 +5,11 @@ from cloudshell.devices.standards.sdn.autoload_structure import GenericSDNSwitch
 from cloudshell.devices.standards.sdn.autoload_structure import GenericSDNPort
 from cloudshell.devices.standards.sdn.autoload_structure import SDNControllerResource
 from cloudshell.devices.standards.sdn.configuration_attributes_structure import GenericSDNResource
-from cloudshell.sdn.resource_driver_interface import SDNResourceDriverInterface
 from cloudshell.shell.core.driver_utils import GlobalLock
 from cloudshell.shell.core.resource_driver_interface import ResourceDriverInterface
+from cloudshell.shell.core.driver_context import AutoLoadDetails
 
-
-class {{cookiecutter.driver_name}} (ResourceDriverInterface, SDNResourceDriverInterface, GlobalLock):
+class {{cookiecutter.driver_name}} (ResourceDriverInterface, GlobalLock):
 
     def __init__(self):
         """Must be without arguments, it is created with reflection at a run time"""
@@ -54,7 +53,7 @@ class {{cookiecutter.driver_name}} (ResourceDriverInterface, SDNResourceDriverIn
 
             return AutoloadDetailsBuilder(resource).autoload_details()
         """
-        pass
+        return AutoLoadDetails([], [])
 
     def cleanup(self):
         """Destroy the driver session
